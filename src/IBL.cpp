@@ -54,7 +54,7 @@ void IBL::DrawSkybox(Shader &skyboxShader, unsigned int cubeVAO) {
 unsigned int IBL::EquirectangularToCubemap(const char* hdrPath) {
     // In a real implementation, this would load an HDR environment map
     // and convert it to a cubemap using a shader
-    // For this simplified version, we'll create a dummy cubemap
+    // For this version, we'll load a skybox from individual texture files
     std::vector<std::string> faces = {
         "resources/textures/skybox/right.jpg",
         "resources/textures/skybox/left.jpg",
@@ -64,11 +64,17 @@ unsigned int IBL::EquirectangularToCubemap(const char* hdrPath) {
         "resources/textures/skybox/back.jpg"
     };
     
-    // Check if the files exist, if not, create a dummy cubemap
-    // In a real implementation, we would load the actual files
-    unsigned int cubemap = TextureLoader::CreateCubemap(1024, 1024);
+    // Load cubemap textures
+    unsigned int cubemap = TextureLoader::LoadCubemap(faces);
     
-    std::cout << "Created dummy environment cubemap." << std::endl;
+    // If loading fails, create a dummy cubemap
+    if (cubemap == 0) {
+        std::cout << "Failed to load skybox textures, creating dummy environment cubemap." << std::endl;
+        cubemap = TextureLoader::CreateCubemap(1024, 1024);
+    } else {
+        std::cout << "Loaded environment cubemap from skybox textures." << std::endl;
+    }
+    
     return cubemap;
 }
 

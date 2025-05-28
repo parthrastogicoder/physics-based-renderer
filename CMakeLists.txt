@@ -17,6 +17,7 @@ include_directories(
     ${GLM_INCLUDE_DIRS}
     ${GLFW_INCLUDE_DIRS}
     ${PROJECT_SOURCE_DIR}/include
+    /usr/local/include
 )
 
 # Add source files

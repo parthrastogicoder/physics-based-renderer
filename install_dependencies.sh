@@ -15,4 +15,9 @@ sudo cp stb_image.h /usr/local/include/stb/
 cd ..
 rm -rf temp
 
+# Create local include directory for stb (as a fallback)
+echo "Creating local include directory for stb..."
+mkdir -p "/home/parth/Desktop/Rendering engine /include/stb"
+wget -O "/home/parth/Desktop/Rendering engine /include/stb/stb_image.h" https://raw.githubusercontent.com/nothings/stb/master/stb_image.h
+
 echo "Dependencies installed successfully!"
