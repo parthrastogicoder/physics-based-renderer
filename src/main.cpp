@@ -111,7 +111,9 @@ int main() {
     
     // Setup IBL
     IBL ibl;
+    std::cout << "Loading environment map..." << std::endl;
     ibl.LoadEnvironmentMap("resources/textures/hdr/environment.hdr");
+    std::cout << "Environment map loaded!" << std::endl;
     
     // Set up light positions
     std::vector<glm::vec3> lightPositions = {

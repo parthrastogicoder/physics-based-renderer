@@ -1,0 +1,7 @@
+Loading environment map...
+Loaded HDR environment map: resources/textures/hdr/environment.hdr (1024x512)
+Created environment cubemap from HDR texture.
+Created irradiance cubemap.
+Created prefiltered environment cubemap.
+Created BRDF lookup texture.
+Environment map loaded!

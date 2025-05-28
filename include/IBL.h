@@ -38,4 +38,7 @@ private:
     
     // Generate a BRDF LUT for split-sum approximation
     unsigned int GenerateBRDFLookUpTexture();
+    
+    // Setup a cube VAO for rendering to cubemap faces
+    unsigned int setupCubeVAO();
 };
